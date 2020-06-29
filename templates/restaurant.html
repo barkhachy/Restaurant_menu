@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Restaurants</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"   href = "{{url_for('static',filename ='css/style.css')}}">
+</head>
+<body>
+<div class = "header">
+    <h1> List of all Restaurants</h1>
+</div> 
+<div class ="topnav">
+    <a href = "{{ url_for('showRestaurants')}}"> Home Page </a>
+</div>
+<br>
+<br>
+<div style = "text-align : center">
+{% for i in rest %}
+
+<div class = "main" style="text-align: center; border: 1px solid paleturquoise;">
+
+<a href = "{{ url_for('restaurantMenu', rest_id = i.id) }}">{{ i.name }}</a>
+<br>
+<br>
+</div>
+</div>
+
+{% endfor %}
+</body>
+
+</html>

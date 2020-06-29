@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Change</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"   href = "{{url_for('static',filename ='css/style.css')}}">
+    </head>
+<body>
+<div class ="header"><h1>Change the name of item</h1></div>
+
+<div class ="topnav">
+    <a href = "{{ url_for('showRestaurants')}}"> Home Page </a>
+    <a href = "{{ url_for('restaurantMenu', rest_id = rest_id)}}">See menu for this restaurant</a>
+    <a href = "{{ url_for('newMenuItem', restaurant_id = rest_id)}}">Add new Item</a>
+</div>
+<br>
+<br>
+<div class ="main" style ="text-align: center;">
+<form method = 'POST' action = "{{ url_for('editMenuItem', restaurant_id = rest_id , menu_id = item.id)}}">
+    <table id="table2"; cellspacing="5px" cellpadding="5%"; align="center">    
+    <tr>
+        <td>Name </td>
+        <td><input type="text" name = "name" size = 30 placeholder="{{item.name}}" required></td>
+    </tr>
+    </table>
+    <br>
+    <input type= "submit" value="Change">
+    <br>
+    <a href = "{{ url_for('restaurantMenu', rest_id = rest_id)}}"> Cancel</a>
+
+</form>
+</div>
+</body>
+
+</html>
